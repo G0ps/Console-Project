@@ -9,3 +9,6 @@ int main()
     return 0;
 }
 
+/*compile statement
+g++ Main.cpp -o output
+*/
