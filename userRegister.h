@@ -8,11 +8,11 @@
 
 using namespace std;
 class userRegister:public Profile{
-    int options;
+    int options = 3;
     public:
     userRegister(){
             do{
-            cin >> this->options;
+            
             cout << R"(
             REGISTRATION PORTAL
             userREGISTER AS
@@ -22,12 +22,12 @@ class userRegister:public Profile{
 
             Enter option :- 
             )";
-
+            cin >> this->options;
             if(this->options == 1 || this->options == 2)
             {
                 try{
                     pair<string , string> user_cred = create_profile();
-                    cout << "id = "<<user_cred.first << " pass = "<<user_cred.second<<"\n";
+                    cout << "\tid = "<<user_cred.first << " \n\tpass = "<<user_cred.second<<"\n";
                     break;
                 }
                 catch(exception &e){

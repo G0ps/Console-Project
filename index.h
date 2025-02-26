@@ -14,8 +14,8 @@
 
 using namespace std;
 
-class index:public userRegister{
-    int option = 3;
+class index {
+    int option;
     public:
     index(){
         do{
@@ -33,20 +33,12 @@ class index:public userRegister{
         cout << "Enter option : ";
         cin >> this->option;
         cout << "\n";
-        // if(this->option == 2)
-        //     {
-        //         try{
-        //                 userRegister();
-        //                 cout << "sucessfully created profile\n";
-        //                 break;
-        //             }
-        //             catch(exception &e)
-        //             {
-        //                 cout << "creation failed for some reason\n";
-        //                 continue;
-        //             }
-        //     }
-    }while(this->option != 3);
+        if(this->option == 2)
+        {
+            userRegister u;
+        }
+    }
+        while(this->option != 3);
         // cout << Login_credentials.empty()<<"\n";
     }
 
