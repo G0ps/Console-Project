@@ -1,11 +1,22 @@
 #include<bits/stdc++.h>
-#include "Profile.h"
-using namespace std;
 
+#include "Profile.h"
+#include "premiumCustomer.h"
+
+using namespace std;
+//temperory database
+unordered_map<string , int> Login_credentials;
+//rows and columns in db
+//temperory database ends
 int main()
 {
+    
     Profile p;
+    premiumCustomer p2(p);
+
     p.print_details();
+    int a;
+    cin >> a;
     return 0;
 }
 
