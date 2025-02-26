@@ -10,18 +10,21 @@
 #include <stdexcept>
 
 #include "Profile.h"
+#include "UserCredentials.h"
 
 using namespace std;
 
-class premiumCustomer : public Profile{
+class premiumCustomer{
     
     public:
+    premiumCustomer()
+    {}
     premiumCustomer(Profile &p)
     {
         if(
             p.update_customer_type("premiumCustomer")
             &&
-            p.update_profile_details("0PREMIUM-ATTRIBUTES",{
+            p.update_profile_details("DPREMIUM-ATTRIBUTES",{
                 {"0points","0"},
                 {"1medal","bronze"},
             })    
