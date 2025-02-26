@@ -41,14 +41,14 @@ class Profile {
     Profile() {}
 
     pair<string,string> create_profile(
-        string name,
-        int age,
-        tuple<int, int, int> DOB,
-        string mobile,
-        string email,
-        string upi,
-        string account,
-        string password
+        string name = "",
+        int age = 0,
+        tuple<int, int, int> DOB = make_tuple(1,1,1),
+        string mobile = "",
+        string email = "",
+        string upi = "",
+        string account = "",
+        string password = ""
     ) {
         try{
 

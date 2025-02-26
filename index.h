@@ -10,16 +10,19 @@
 #include <stdexcept>
 
 #include "UserCredentials.h"
+#include "userRegister.h"
 
 using namespace std;
+map<string, string> UserCredentials::Login_credentials;
 
 class index {
     int option;
     public:
     index(){
-        do{cout << R"(
+        do{
+        cout << R"(
         
-        WELCOME TO THE TRAVELLER APPLICATION : 
+        TRAVELLER APPLICATION : 
 
         option 1    login
         option 2    register
@@ -30,7 +33,13 @@ class index {
         )";
         cout << "Enter option : ";
         cin >> this->option;
-        cout << "\n";}while(this->option != 3);
+        cout << "\n";
+        if(this->option == 2)
+        {
+            userRegister u;
+        }
+    }
+        while(this->option != 3);
         // cout << Login_credentials.empty()<<"\n";
     }
 
