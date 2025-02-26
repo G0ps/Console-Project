@@ -24,7 +24,7 @@ class UserCredentials{
     {
         return (Login_credentials.find(user_id) != Login_credentials.end());
     }
-    static pair<bool,Profile> can_login(string &user_id)
+    static pair<bool,Profile> can_login(string user_id)
     {
         auto it = Login_credentials.find(user_id);
         if(it == Login_credentials.end())

@@ -19,7 +19,7 @@ class Profile {
     string data_for_DB = "";
     string user_id;
     string password;
-    string customer_type = "User";
+    string customer_type = "user";
 
     map<string, map<string, string>> details = {
         {"APERSONAL", {
@@ -41,7 +41,7 @@ public:
     Profile() {}
 
     string get_data_string() {
-        return data_for_DB;
+        return data_for_DB + this->customer_type+"~\n";
     }
 
     pair<string, Profile> create_profile(
@@ -71,7 +71,7 @@ public:
             // Format data for storage
             data_for_DB = name + "~" + to_string(age) + "~" + to_string(get<0>(DOB)) + "~" +
                           to_string(get<1>(DOB)) + "~" + to_string(get<2>(DOB)) + "~" + mobile + "~" +
-                          email + "~" + upi + "~" + account + "~" + password + "~\n";
+                          email + "~" + upi + "~" + account + "~" + password + "~";
 
             return {user_id, *this};
         } catch (exception& e) {
@@ -96,9 +96,9 @@ public:
     }
 
     // Update customer type
-    bool update_customer_type(const string& s) {
+    bool update_customer_type(const string s) {
         try {
-            customer_type = s;
+            this->customer_type = s;
             return true;
         } catch (exception& e) {
             cerr << "Error updating customer type: " << e.what() << endl;
@@ -124,7 +124,10 @@ public:
             return false;
         }
     }
-
+    string get_type_of_customer()
+    {
+        return this->customer_type;
+    }
     string get_password() {
         return password;
     }

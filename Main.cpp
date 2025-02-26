@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 
-#include "index.h"
+#include "register/index.h"
 
 using namespace std;
 //temperory database ends
 int main()
 {
-    index i;
+    register1::index i;
     cout << "here";
     return 0;
 }

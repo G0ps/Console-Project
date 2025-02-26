@@ -25,6 +25,7 @@ public:
             Enter option:
             )";
             cin >> options;
+            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Flush input buffer
 
             if (options == 1 || options == 2) {
