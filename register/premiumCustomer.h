@@ -24,7 +24,7 @@ public:
             {"0points", "0"},
             {"1medal", "bronze"},
         });
-
+        UserCredentials::update_Login_credendials(p.get_user_id() , p);
         if (typeUpdated && attributesUpdated) {
             cout << "Successfully became a Premium Customer\n";
         } else {

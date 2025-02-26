@@ -8,8 +8,8 @@ using namespace std;
 namespace application{
     class application_index{
         public:
-        applicatio_index(){
-            cout<<"iam here\n";
+        application_index(){
+            cout<<"I am inside applications\n";
         }
     };
 }

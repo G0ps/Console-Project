@@ -36,34 +36,34 @@ public:
 
                     if (password == actual_password) {
                         cout << "\n\t\tLogged in successfully!\n";
-                        // string customer_type = it.second.get_type_of_customer();
-                        // if(customer_type == "user")
-                        // {
-                        //     cout << "\t\tBecome pro to unlock more features\n";
-                        //     cout << "\t\tpress 1 to turn premium : ";
-                        //     bool flag = 0;
-                        //     cin >> flag;
-                        //     if(flag)
-                        //     {
-                        //         string premiumlode = "";
-                        //     {do{
+                        string customer_type = it.second.get_type_of_customer();
+                        if(customer_type == "user")
+                        {
+                            cout << "\t\tBecome pro to unlock more features\n";
+                            cout << "\t\tpress 1 to turn premium : ";
+                            bool flag = 0;
+                            cin >> flag;
+                            if(flag)
+                            {
+                                string premiumlode = "";
+                            {do{
                                     
-                        //             cout << "\n\t\t Enter premium code\n";
-                        //             cout << "\t\t Enter -1 to exit : ";
-                        //             string premiumlode;
-                        //             cin >> premiumlode;
-                        //             cin.clear();
-                        //             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        //             if(premium_codes.find(premiumlode) != premium_codes.end())
-                        //             {
-                        //                 premium_codes.erase(premiumlode);
-                        //                 premiumCustomer p(it.second);
-                        //                 cout << "became premium successfull\n";
-                        //                 break;
-                        //             }
-                        //         }while(premiumlode != "-1");}
-                        //     }
-                        // }
+                                    cout << "\n\t\t Enter premium code\n";
+                                    cout << "\t\t Enter -1 to exit : ";
+                                    string premiumlode;
+                                    cin >> premiumlode;
+                                    cin.clear();
+                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                    if(premium_codes.find(premiumlode) != premium_codes.end())
+                                    {
+                                        premium_codes.erase(premiumlode);
+                                        premiumCustomer p(it.second);
+                                        cout << "became premium successfull\n";
+                                        break;
+                                    }
+                                }while(premiumlode != "-1");}
+                            }
+                        }
                         // it.second.print_details();
                         application::application_index a;
                         return;

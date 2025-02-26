@@ -14,7 +14,7 @@ public:
     userRegister_busRegister(Profile &p) {
         bool type_updated = p.update_customer_type("Collaborator");
         bool details_updated = p.update_profile_details("DBuses", map<string, string>());
-        p.print_details();
+        UserCredentials::update_Login_credendials(p.get_user_id() , p);
         if (type_updated && details_updated) {
             cout << "Successfully became a Collaborator\n";
         } else {
