@@ -70,6 +70,15 @@ class Profile {
         }  
     }
 
+    //print the details of the user
+    //getting  the details of the Name 
+    string get_name() {
+        return details["APERSONAL"]["0NAME"];
+    }
+    //getting the details of the mobile number;
+    string mobilenumber() {
+        return details["BCONTACT"]["0MOBILE"];
+    }
     void print_details() { 
            
         for (int i = 0; i < 50; i++) {
