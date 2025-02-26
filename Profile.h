@@ -13,7 +13,11 @@ using namespace std;
 
 //this is a basic probile outlet , a class need to be uniting this and a complete profile class so that the profile will have a type
 
+static long long id = 1;
 class Profile {
+    
+    string user_id;
+    string password;
     string customer_type = "place-holder";
     map<string, map<string, string>> details = {
         {"APERSONAL", {
@@ -29,21 +33,26 @@ class Profile {
             {"0UPI-ID", "place-holder"},
             {"1ACCOUNT", "place-holder"}
         }},
-
+        
     };
-public:
+    public:
     Profile() {}
 
-    bool create_profile(
+    pair<string,string> create_profile(
         string name,
         int age,
         tuple<int, int, int> DOB,
         string mobile,
         string email,
         string upi,
-        string account
+        string account,
+        string password
     ) {
         try{
+
+            string id1 = name+to_string(id ++);
+            this->user_id = id1;
+            this->password = password;
             this->details["APERSONAL"]["0NAME"] = name;
             this->details["APERSONAL"]["1AGE"] = to_string(age);
             this->details["APERSONAL"]["2DOB"] = to_string(get<0>(DOB)) + "-" + to_string(get<1>(DOB)) + "-" + to_string(get<2>(DOB));
@@ -51,15 +60,16 @@ public:
             this->details["BCONTACT"]["1EMAIL"] = email;
             this->details["CBANK"]["0UPI-ID"] = upi;
             this->details["CBANK"]["1ACCOUNT"] = account;  
-            return true;
+            return {id1 , password};
         }
         catch(exception e)
         {
-            return false;
+            return {};
         }  
     }
 
-    void print_details() {    
+    void print_details() { 
+           
         for (int i = 0; i < 50; i++) {
             cout << "==";
         }
@@ -71,9 +81,10 @@ public:
             for (auto it2 : it.second) {
                 cout << "\t" << it2.first.substr(1) << ": " << it2.second << "\n";
             }
+            cout << "\n";
         }
 
-        cout << "\n";
+        
         for (int i = 0; i < 50; i++) {
             cout << "==";
         }
@@ -92,6 +103,17 @@ public:
             return false;
         }
     }
-};
+    bool update_profile_details(string key , map<string,string> mp)
+    {
+        try{
+            this -> details[key] = mp;
+            return true;
+        }
+        catch(exception &e)
+        {
+            return false;
+        }
+    }
+};  
 
 #endif
