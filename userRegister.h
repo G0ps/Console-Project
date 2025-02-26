@@ -100,10 +100,10 @@ class userRegister:public Profile{
                     
                     cout << "\t\tEnter a unique email id (user id) : ";
                     cin >> email;
-                    while(UserCredentials::check(email))
+                    while(UserCredentials::check_Login_credentials(email))
                     {
                         cout << "\t\tID already present\n";
-                        cout << "Enter another email id (user id) : ";
+                        cout << "\t\tEnter another email id (user id) : ";
                         cin >> email;
                     }
                     
@@ -124,7 +124,7 @@ class userRegister:public Profile{
                         cout << "\t\tPasswords do not match, try again\n";
                     }
                     
-                    pair<string , string> user_cred = create_profile(
+                    pair<string , Profile> user_cred = create_profile(
                         name,
                         age,
                         DOB,
@@ -134,7 +134,8 @@ class userRegister:public Profile{
                         account,
                         password
                     );
-                    cout << "\tid = " << user_cred.first << " \n\tpass = " << user_cred.second << "\n";
+                    UserCredentials::update_Login_credendials(user_cred.first , user_cred.second);
+                    cout << "Login enabled\n";
                     break;
                 }
                 catch(exception &e){
