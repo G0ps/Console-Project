@@ -1,5 +1,5 @@
-#ifndef index_H
-#define index_H
+#ifndef INDEX_H
+#define INDEX_H
 
 #include <iostream>
 #include <map>
@@ -9,16 +9,16 @@
 #include <tuple>
 #include <stdexcept>
 #include <fstream>
+#include <limits>
 
 #include "UserCredentials.h"
 #include "userRegister.h"
 #include "Profile.h"
+#include "user_login.h"
 
 using namespace std;
 
 map<string, Profile> UserCredentials::Login_credentials;
-map<string, string> UserCredentials::premium_credentials;
-map<string, string> UserCredentials::owner_credentials;
 
 class index {
     int option;
@@ -31,7 +31,7 @@ public:
         } else {
             string line;
             while (getline(infile, line)) {
-                if (line.empty()) {
+                if (line.empty() || line[0] == '~') {
                     break;
                 }
 
@@ -65,7 +65,7 @@ public:
                 }
 
                 p.create_profile(name, age, DOB, mobile, email, upi, account, password);
-                UserCredentials::update_Login_credendials(email , p);
+                UserCredentials::update_Login_credendials(email, p);
             }
             infile.close();
         }
@@ -73,7 +73,6 @@ public:
         // Main menu loop
         do {
             cout << R"(
-
             TRAVELLER APPLICATION:
 
             1 - Login
@@ -82,17 +81,29 @@ public:
 
             Enter the option number to trigger the process.
             Example: Enter '3' to exit.
-
             )";
 
             cout << "Enter option: ";
-            cin >> this->option;
+            cin >> option;
+
+            if (cin.fail()) {  // Check if input is invalid (non-integer)
+                cin.clear();    // Clear the error flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                cout << "Invalid input! Please enter a valid option (1, 2, or 3).\n";
+                continue;  // Restart loop without processing invalid input
+            }
+
             cout << "\n";
 
-            if (this->option == 2) {
+            if (option == 2) {
                 userRegister u;
+            } else if (option == 1) {
+                user_login u;
+            } else if (option != 3) {
+                cout << "Invalid option! Please enter 1, 2, or 3.\n";
             }
-        } while (this->option != 3);
+
+        } while (option != 3);
 
         // File processing (Writing to UserCredentials.txt)
         ofstream outfile("UserCredentials.txt", ios::trunc);
@@ -105,11 +116,12 @@ public:
         }
     }
 
-    string stringify(const map<string, Profile>& alpha) {
+    string stringify(map<string, Profile> alpha) {
         string data;
-        for (auto a : alpha) {
+        for (auto& a : alpha) {
             data += a.second.get_data_string();
         }
+        data += "~\n";
         return data;
     }
 };
