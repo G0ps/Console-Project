@@ -13,6 +13,7 @@
 #include "userRegister.h"
 
 using namespace std;
+map<string, string> UserCredentials::Login_credentials;
 
 class index {
     int option;
@@ -21,7 +22,7 @@ class index {
         do{
         cout << R"(
         
-        WELCOME TO THE TRAVELLER APPLICATION : 
+        TRAVELLER APPLICATION : 
 
         option 1    login
         option 2    register
