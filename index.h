@@ -24,8 +24,8 @@ class index {
     int option;
 public:
     index() {
-        // File processing (Reading from DB.txt)
-        ifstream infile("DB.txt");
+        // File processing (Reading from UserCredentials.txt)
+        ifstream infile("UserCredentials.txt");
         if (!infile) {
             cerr << "Error opening file for reading!\n";
         } else {
@@ -94,8 +94,8 @@ public:
             }
         } while (this->option != 3);
 
-        // File processing (Writing to DB.txt)
-        ofstream outfile("DB.txt", ios::trunc);
+        // File processing (Writing to UserCredentials.txt)
+        ofstream outfile("UserCredentials.txt", ios::trunc);
         if (!outfile) {
             cerr << "Error opening file for writing!\n";
         } else {
