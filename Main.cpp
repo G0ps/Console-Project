@@ -12,9 +12,11 @@ int main()
 {
     
     Profile p;
+   
     premiumCustomer p2(p);
-
+    
     p.print_details();
+    // cout << k.first"-"<<k.second<<"\n";
     int a;
     cin >> a;
     return 0;
