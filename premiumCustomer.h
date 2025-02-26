@@ -21,7 +21,7 @@ class premiumCustomer : public Profile{
         if(
             p.update_customer_type("premiumCustomer")
             &&
-            p.update_profile_details("0PREMIUM-ATTRIBUTES",{
+            p.update_profile_details("EPREMIUM-ATTRIBUTES",{
                 {"0points","0"},
                 {"1medal","bronze"},
             })    
