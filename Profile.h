@@ -9,16 +9,18 @@
 #include <tuple>
 #include <stdexcept>
 
+#include "UserCredentials.h"
+
 using namespace std;
 
 //this is a basic probile outlet , a class need to be uniting this and a complete profile class so that the profile will have a type
 
-static long long id = 1;
+
 class Profile {
     
     string user_id;
     string password;
-    string customer_type = "place-holder";
+    string customer_type = "User";
     map<string, map<string, string>> details = {
         {"APERSONAL", {
             {"0NAME", "place-holder"},
@@ -50,7 +52,7 @@ class Profile {
     ) {
         try{
 
-            string id1 = name+to_string(id ++);
+            string id1 = email;
             this->user_id = id1;
             this->password = password;
             this->details["APERSONAL"]["0NAME"] = name;
@@ -111,6 +113,17 @@ class Profile {
         }
         catch(exception &e)
         {
+            return false;
+        }
+    }
+    bool update_password(string old_password,string new_password)
+    {
+        if(old_password == this -> password)
+        {
+            this->password = new_password;
+            return true;
+        }
+        else{
             return false;
         }
     }
