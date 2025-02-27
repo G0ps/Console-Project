@@ -1,0 +1,15 @@
+#ifndef application_premium_user_H
+#define application_premium_user_H
+
+#include <iostream>
+#include <set>
+
+using namespace std;
+    class application_premium_user{
+        public:
+        application_premium_user(){
+            
+        }
+    };
+
+#endif
