@@ -65,7 +65,7 @@ public:
                             }
                         }
                         // it.second.print_details();
-                        application::application_index a;
+                        application::application_index a(it.second.get_type_of_customer(),it.second.get_user_id());
                         return;
                     } else {
                         retry_attempts--;

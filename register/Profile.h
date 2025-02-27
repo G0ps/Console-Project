@@ -43,7 +43,7 @@ public:
     string get_data_string() {
         return data_for_DB + this->customer_type+"~\n";
     }
-
+    
     pair<string, Profile> create_profile(
         string name = "",
         int age = 0,

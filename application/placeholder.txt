@@ -1,16 +1,15 @@
-#ifndef applicatio_index_H
-#define applicatio_index_H
+#ifndef application_premium_user_H
+#define application_premium_user_H
 
 #include <iostream>
 #include <set>
 
 using namespace std;
-namespace application{
-    class application_index{
+    class application_premium_user{
         public:
-        application_index(){
+        application_premium_user(){
             
         }
     };
-}
+
 #endif
